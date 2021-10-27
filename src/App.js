@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css'
+
+import Team from './component/Team'
+import teams from './teams.json'
+
+class App extends React.Component {
+  render() {
+
+    let mappedTeams = teams.map(team => 
+      <Team team={team}/>)
+
+    return (
+      <div>
+        <h1>Football Teams (UK)</h1>
+        <div class="container">
+          {mappedTeams}
+        </div>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
